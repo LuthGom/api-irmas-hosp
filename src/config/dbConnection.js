@@ -15,6 +15,7 @@ export const db = new Client({
   host: connectionVariables.host,
   port: connectionVariables.port,
   ssl: {
+    rejectUnauthorized: false,
   },
 });
 
