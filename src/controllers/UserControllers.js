@@ -7,10 +7,10 @@ export default class UserController {
       const newUser = new User({ ...body });
       console.log(body);
       await newUser.create();
-      res.status(201).json({ message: "created!" });
+      return res.status(201).json({ message: "created!" });
     } catch (error) {
       console.log(error.message);
-      res.status(400).json({
+      return res.status(400).json({
         message: error.message,
         error: true,
       });
@@ -19,11 +19,11 @@ export default class UserController {
   static async findAll(req, res) {
     try {
       const rows = await User.findAll();
-      res
+      return res
         .status(200)
         .json({ result: { countUsers: rows.allUsers.length, rows } });
     } catch (error) {
-      res.status(404).json({ message: error.message, error: true });
+      return res.status(404).json({ message: error.message, error: true });
     }
   }
   static async findByEmail(req, res) {
@@ -42,7 +42,7 @@ export default class UserController {
         user: filter,
       });
     } catch (error) {
-      res.status(400).json({ message: error.message, error: true });
+      return res.status(400).json({ message: error.message, error: true });
     }
   }
   static async findByName(req, res) {
@@ -54,7 +54,7 @@ export default class UserController {
         user: filter,
       });
     } catch (error) {
-      res.status(400).json({ message: error.message, error: true });
+      return res.status(400).json({ message: error.message, error: true });
     }
   }
 }

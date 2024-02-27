@@ -7,9 +7,9 @@ export default class AnswersController {
       const newAnswers = new Answers({ ...body });
       console.log(body);
       await newAnswers.create();
-      res.status(201).json({ message: "created" });
+      return res.status(201).json({ message: "created" });
     } catch (error) {
-      res.status(400).json({
+      return res.status(400).json({
         message: error.message,
         error: true,
       });
@@ -18,10 +18,10 @@ export default class AnswersController {
   static async findAll(req, res) {
     try {
       const rows = await Answers.findAll();
-      res.status(200).json({ rows: rows });
+      return res.status(200).json({ rows: rows });
     } catch (error) {
       console.log(error.message);
-      res.status(404).json({ message: error.message, error: true });
+      return res.status(404).json({ message: error.message, error: true });
     }
   }
 }
