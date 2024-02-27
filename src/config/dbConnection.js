@@ -5,7 +5,7 @@ const connectionVariables = {
   username: process.env.DEV_DB_USER,
   password: process.env.DEV_DB_PASSWORD,
   host: process.env.DEV_DB_HOSTNAME,
-  port: process.env.PORT,
+  port: process.env.DB_PORT,
 };
 
 export const db = new Client({
