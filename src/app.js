@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { createTables, db } from "./src/config/dbConnection.js";
-import { routes } from "./src/routes/index.js";
+import { createTables, db } from "./config/dbConnection.js";
+import { routes } from "./routes/index.js";
 const app = express();
 
 app.use(express.json());
